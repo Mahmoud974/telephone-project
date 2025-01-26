@@ -3,22 +3,45 @@ import Image from "next/image";
 import React, { useState } from "react";
 import Devis from "./Steps/Devis";
 
-const StepContent = ({ title, description, content }) => (
-  <div className="text-black   px-6">
+// Définition des types pour le composant StepContent
+interface StepContentProps {
+  title: string;
+  description: string;
+  content: React.ReactNode;
+}
+
+const StepContent: React.FC<StepContentProps> = ({
+  title,
+  description,
+  content,
+}) => (
+  <div className="text-black px-6 flex flex-col justify-between h-[400px] w-[1100px]">
     <div className="gap-4 relative">
       <p className="font-bold text-orange-400 text-center">
         {title} - {description}
       </p>
       <h2 className="text-4xl font-extrabold mt-4">{title}</h2>
-      <div className="text-lg mt-4">{content}</div>
+      <div className="text-lg mt-4 overflow-auto">{content}</div>
     </div>
   </div>
 );
 
-const steps = [
+interface Device {
+  src: string;
+  alt: string;
+  label: string;
+}
+
+interface Step {
+  title: string;
+  description: string;
+  content: React.ReactNode;
+}
+
+const steps: Step[] = [
   {
     title: "Étape I",
-    description: "Séléctionnez votre appareil",
+    description: "Sélectionnez votre appareil",
     content: (
       <div className="flex justify-center">
         <ul className="grid grid-cols-5 gap-6 justify-items-center">
@@ -44,7 +67,7 @@ const steps = [
               label: "OnePlus",
             },
             { src: "/mobile-img/other.png", alt: "Other", label: "Other" },
-          ].map((device, index) => (
+          ].map((device: Device, index: number) => (
             <li
               key={index}
               className="bg-orange-500 hover:bg-orange-700 cursor-pointer text-white px-6 py-3 rounded-xl shadow-xl flex flex-col items-center justify-between h-32 w-32"
@@ -65,24 +88,12 @@ const steps = [
   },
   {
     title: "Étape II",
-    description: "Séléctionnez votre modèle",
-    content: (
-      <div>
-        <p>
-          Choisissez maintenant le modèle spécifique de votre appareil pour
-          mieux adapter la réparation.
-        </p>
-        <ul className="list-disc list-inside mt-4">
-          <li>iPhone 12</li>
-          <li>Samsung Galaxy S20</li>
-          <li>Tablette Samsung A7</li>
-        </ul>
-      </div>
-    ),
+    description: "Sélectionnez votre modèle",
+    content: <div className="max-w-2xl"> </div>,
   },
   {
     title: "Étape III",
-    description: "Séléctionnez les réparations",
+    description: "Sélectionnez les réparations",
     content: (
       <div>
         <p>Indiquez les réparations nécessaires pour votre appareil.</p>
@@ -129,7 +140,7 @@ const steps = [
 ];
 
 export default function SelectModel() {
-  const [selectedStep, setSelectedStep] = useState(0);
+  const [selectedStep, setSelectedStep] = useState<number>(0);
 
   return (
     <main className="py-10">
@@ -167,7 +178,7 @@ export default function SelectModel() {
         ))}
       </ul>
 
-      <section className="flex justify-center    mt-10">
+      <section className="flex justify-center mt-10">
         <StepContent
           title={steps[selectedStep].title}
           description={steps[selectedStep].description}
