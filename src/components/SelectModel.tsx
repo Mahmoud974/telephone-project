@@ -2,6 +2,9 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import Devis from "./Steps/Devis";
+import { Input } from "@/components/ui/input";
+import { Button } from "./ui/button";
+import { ArrowBigRightDashIcon } from "lucide-react";
 
 // Définition des types pour le composant StepContent
 interface StepContentProps {
@@ -20,8 +23,8 @@ const StepContent: React.FC<StepContentProps> = ({
       <p className="font-bold text-orange-400 text-center">
         {title} - {description}
       </p>
-      <h2 className="text-4xl font-extrabold mt-4">{title}</h2>
-      <div className="text-lg mt-4 overflow-auto">{content}</div>
+
+      <div className="text-lg mt-8 overflow-auto">{content}</div>
     </div>
   </div>
 );
@@ -89,52 +92,254 @@ const steps: Step[] = [
   {
     title: "Étape II",
     description: "Sélectionnez votre modèle",
-    content: <div className="max-w-2xl"> </div>,
+    content: (
+      <div className="max-w-2xl mx-auto">
+        <div className="grid grid-cols-3 gap-4">
+          {[
+            "iPhone 15 Pro Max",
+            "iPhone 15 Pro",
+            "iPhone 15 Plus",
+            "iPhone 15",
+            "iPhone 14 Pro Max",
+            "iPhone 14 Pro",
+            "iPhone 14 Plus",
+            "iPhone 14",
+            "iPhone 13 Pro Max",
+            "iPhone 13 Pro",
+            "iPhone 13 mini",
+            "iPhone 13",
+            "iPhone 12 Pro Max",
+            "iPhone 12 Pro",
+            "iPhone 12 mini",
+            "iPhone 12",
+            "iPhone 11 Pro Max",
+            "iPhone 11 Pro",
+            "iPhone 11",
+            "iPhone Xs Max",
+            "iPhone Xs",
+            "iPhone X",
+            "iPhone XR",
+            "iPhone 8 Plus",
+            "iPhone 8",
+            "iPhone 7 Plus",
+            "iPhone 7",
+            "iPhone 6 Plus",
+            "iPhone 6s Plus",
+            "iPhone 6s",
+            "iPhone 6",
+            "iPhone SE (2022)",
+            "iPhone SE (2020)",
+            "iPhone SE (2016)",
+            "iPhone 5s",
+            "iPhone 5c",
+            "iPhone 5",
+            "iPhone 4s",
+            "iPhone 4",
+          ].map((model, index) => (
+            <button
+              key={index}
+              className="bg-gray-200 hover:bg-gray-400 text-black px-4 py-2 rounded-lg shadow-sm"
+            >
+              {model}
+            </button>
+          ))}
+        </div>
+        <div className="mt-4 text-center">
+          <input
+            type="text"
+            placeholder="Saisissez ici un autre modèle"
+            className="w-full border rounded-lg p-2"
+          />
+        </div>
+      </div>
+    ),
   },
+
   {
     title: "Étape III",
-    description: "Sélectionnez les réparations",
+    description: "Sélectionnez la ou les pannes",
     content: (
       <div>
-        <p>Indiquez les réparations nécessaires pour votre appareil.</p>
-        <ul className="list-disc list-inside mt-4">
-          <li>Écran cassé</li>
-          <li>Batterie défectueuse</li>
-          <li>Problème de caméra</li>
-        </ul>
+        <div className="flex justify-center gap-5">
+          <div className="flex flex-col justify-center text-center">
+            <div className="bg-white w-32 h-32 rounded-3xl border shadow-sm flex items-center justify-center ">
+              <Image
+                src="/step-three/broke.png"
+                alt="Panne camera"
+                width={400}
+                height={40}
+                className="w-20 h-28 object-contain"
+              />
+            </div>
+            <p className="mt-2 text-sm">Écran cassé</p>
+          </div>
+          <div className="flex flex-col justify-center text-center">
+            <div className="bg-white w-32 h-32 rounded-3xl border shadow-sm flex items-center justify-center ">
+              <Image
+                src="/step-three/batterie.png"
+                alt="Panne camera"
+                width={400}
+                height={40}
+                className="w-20 h-28 object-contain"
+              />
+            </div>
+            <p className="mt-2 text-sm">Écran cassé</p>
+          </div>
+          <div className="flex flex-col justify-center text-center">
+            <div className="bg-white w-32 h-32 rounded-3xl border shadow-sm flex items-center justify-center ">
+              <Image
+                src="/step-three/charger.png"
+                alt="Panne camera"
+                width={400}
+                height={40}
+                className="w-20 h-28 object-contain"
+              />
+            </div>
+            <p className="mt-2 text-sm">Chargeur</p>
+          </div>
+          <div className="flex flex-col justify-center text-center">
+            <div className="bg-white w-32 h-32 rounded-3xl border shadow-sm flex items-center justify-center ">
+              <Image
+                src="/step-three/water.png"
+                alt="Panne camera"
+                width={400}
+                height={40}
+                className="w-20 h-28 object-contain"
+              />
+            </div>
+            <p className="mt-2 text-sm">Desoxydation</p>
+          </div>
+          <div className="flex flex-col justify-center text-center">
+            <div className="bg-white w-32 h-32 rounded-3xl border shadow-sm flex items-center justify-center ">
+              <Image
+                src="/step-three/camera.png"
+                alt="Panne camera"
+                width={400}
+                height={40}
+                className="w-20 h-28 object-contain"
+              />
+            </div>
+            <p className="mt-2 text-sm">Camera</p>
+          </div>
+          <div>
+            <div className="bg-white w-32 h-32 rounded-3xl border shadow-sm flex items-center justify-center ">
+              <Image
+                src="/step-three/vitre.png"
+                alt="Panne camera"
+                width={400}
+                height={40}
+                className="w-20 h-28 object-contain"
+              />
+            </div>
+            <p className="mt-2 text-sm">Remplacer la vitre</p>
+          </div>
+        </div>
+        <div className="w-1/3 mx-auto mt-12">
+          <Input type="text" placeholder="Saisissez une autre panne" />
+          <div className="mx-auto gap-4  flex justify-center items-center mt-3">
+            <Button variant="default">Retour</Button>
+            <Button variant="default">
+              Continuer <ArrowBigRightDashIcon />{" "}
+            </Button>
+          </div>
+        </div>
       </div>
     ),
   },
   {
     title: "Étape IV",
-    description: "Indiquez vos informations",
+    description: "Prenons rendez-vous",
     content: (
-      <form className="mt-4 space-y-4">
-        <div>
-          <label className="block text-left font-bold mb-1">Nom :</label>
-          <input
-            type="text"
-            placeholder="Entrez votre nom"
-            className="w-full border rounded-lg p-2"
-          />
+      <div className="max-w-2xl mx-auto">
+        <p className="text-center text-gray-600 mb-4">
+          Ces informations resteront confidentielles et seront uniquement
+          utilisées afin de répondre à votre demande.
+        </p>
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-700">
+              Votre nom
+            </label>
+            <input
+              type="text"
+              value="Isaac Moussa"
+              className="w-full border rounded-lg p-2"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700">
+              Votre prénom
+            </label>
+            <input
+              type="text"
+              value="sd"
+              className="w-full border rounded-lg p-2"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700">
+              Votre n° de téléphone
+            </label>
+            <input
+              type="text"
+              value="0661794271"
+              className="w-full border rounded-lg p-2"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700">
+              Votre email
+            </label>
+            <input
+              type="email"
+              value="manuscrit9rt1@gmail.com"
+              className="w-full border rounded-lg p-2"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700">
+              Code postal
+            </label>
+            <input
+              type="text"
+              value="26080"
+              className="w-full border rounded-lg p-2"
+            />
+          </div>
         </div>
-        <div>
-          <label className="block text-left font-bold mb-1">Email :</label>
-          <input
-            type="email"
-            placeholder="Entrez votre email"
-            className="w-full border rounded-lg p-2"
-          />
+        <div className="mt-4 flex items-center">
+          <input type="checkbox" id="atelier" className="mr-2" />
+          <label htmlFor="atelier" className="text-gray-700">
+            Vous préférez nous apporter votre appareil à notre atelier au{" "}
+            <strong>1 rue des Boucherie à BordDesoxydationx</strong> ?
+          </label>
         </div>
-        <div>
-          <label className="block text-left font-bold mb-1">Adresse :</label>
-          <input
-            type="text"
-            placeholder="Entrez votre adresse"
-            className="w-full border rounded-lg p-2"
-          />
+        <div className="mt-6">
+          <h3 className="text-center font-medium">
+            Comment préférez-vous être recontacté ?
+          </h3>
+          <div className="flex justify-center gap-4 mt-2">
+            <button className="bg-gray-200 hover:bg-gray-400 text-black px-4 py-2 rounded-lg shadow-sm">
+              Par téléphone
+            </button>
+            <button className="bg-gray-200 hover:bg-gray-400 text-black px-4 py-2 rounded-lg shadow-sm">
+              Par email
+            </button>
+            <button className="bg-gray-200 hover:bg-gray-400 text-black px-4 py-2 rounded-lg shadow-sm">
+              Peu importe
+            </button>
+          </div>
         </div>
-      </form>
+        <div className="mt-6">
+          <label className="block text-sm font-medium text-gray-700">
+            Avant de terminer, y a-t-il autre chose que nous devrions savoir ?
+          </label>
+          <textarea
+            className="w-full border rounded-lg p-2 mt-2"
+            rows="3"
+          ></textarea>
+        </div>
+      </div>
     ),
   },
 ];
