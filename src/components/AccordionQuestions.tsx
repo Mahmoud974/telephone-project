@@ -8,75 +8,56 @@ import Image from "next/image";
 
 export function AccordionQuestions() {
   return (
-    <div className="mb-12 flex justify-center items-center">
-      <div className="max-w-3xl flex flex-col md:flex-row justify-center items-center space-y-6 md:space-x-6">
+    <div className="container mx-auto mb-16 px-4">
+      <div className="flex flex-col md:flex-row items-center justify-center lg:gap-12 gap-6">
         <Image
           src="/iphone.jpg"
           alt="Smartphone"
-          width={400}
-          height={400}
-          className="w-[250px] md:w-[400px] rounded-lg" // Ajuste la largeur de l'image pour plus de fluidité
+          width={500}
+          height={500}
+          className="w-full md:max-w-lg   rounded-xl shadow-lg"
         />
-        <Accordion
-          type="single"
-          collapsible
-          className="w-full md:w-1/2 space-y-4 lg:px-0 px-5 "
-        >
-          {" "}
-          {/* Ajustement de largeur et espacement */}
+        <Accordion type="single" collapsible className="w-full max-w-lg">
           <AccordionItem value="item-1">
             <AccordionTrigger>
-              {`Quel est le tarif d'une réparation ?`}
+              {` Quel est le tarif d'une réparation ?`}
             </AccordionTrigger>
             <AccordionContent>
-              Le coût varie selon le modèle de votre appareil, mais les
-              réparations commencent à partir de 19€.
+              Le coût varie selon le modèle, à partir de 19€.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">
             <AccordionTrigger>
-              Combien de temps faut-il pour réparer mon appareil ?
+              Combien de temps dure une réparation ?
             </AccordionTrigger>
             <AccordionContent>
-              En général, la réparation prend environ 30 minutes. Cela peut
-              varier en fonction de la complexité.
+              Environ 30 minutes selon la complexité.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3">
-            <AccordionTrigger>
-              Quand est-ce que je dois régler la facture ?
-            </AccordionTrigger>
+            <AccordionTrigger>Quand dois-je payer ?</AccordionTrigger>
             <AccordionContent>
-              Le règlement se fait une fois la réparation terminée, lorsque vous
-              récupérez votre appareil.
+              Après la réparation, lors de la récupération.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-4">
-            <AccordionTrigger>
-              Est-ce que faire réparer mon appareil annule ma garantie ?
-            </AccordionTrigger>
+            <AccordionTrigger>Ma garantie est-elle annulée ?</AccordionTrigger>
             <AccordionContent>
-              Non, votre garantie reste valide tant que la réparation est
-              effectuée par des professionnels agréés.
+              Non, si la réparation est effectuée par des professionnels agréés.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-5">
             <AccordionTrigger>
-              Puis-je faire réparer mon appareil immédiatement sur place ?
+              Puis-je faire réparer immédiatement ?
             </AccordionTrigger>
             <AccordionContent>
-              Oui, nous réparons de nombreux appareils sur place. Cependant,
-              pour certaines réparations, il peut y avoir un délai
-              supplémentaire.
+              Oui, sauf si un délai est nécessaire pour certaines réparations.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-6">
-            <AccordionTrigger>
-              Dois-je absolument prendre rendez-vous ?
-            </AccordionTrigger>
+            <AccordionTrigger>Dois-je prendre rendez-vous ?</AccordionTrigger>
             <AccordionContent>
-              {`Ce n'est pas obligatoire, mais cela vous permet de choisir l'heure
-              qui vous convient et de vous garantir une place.`}
+              Non, mais cela vous garantit un créneau adapté.
             </AccordionContent>
           </AccordionItem>
         </Accordion>

@@ -22,22 +22,20 @@ export default function SecondSection() {
               composants utilisés sont soigneusement testés avant et après
               chaque réparation, garantissant fiabilité et qualité.
             </p>
-            <ul className="mt-3 lg:space-y-4 text-lg text-center">
-              <li className="flex items-center">
+            <ul className="mt-3 lg:space-y-4 text-lg flex flex-col justify-center text-center ">
+              <li className="flex lg:items-center">
                 <CircleCheckBig className="text-orange-500 mr-3" />
                 <p className="text-md">
                   Tarifs réduits pour les petites budgets
                 </p>
               </li>
-              <li className="flex items-center">
+              <li className="flex lg:items-center">
                 <CircleCheckBig className="text-orange-500 mr-3" />
                 <p className="text-md">Réparation EXPRESS en 1 heure</p>
               </li>
-              <li className="flex items-center">
+              <li className="flex lg:items-center">
                 <CircleCheckBig className="text-orange-500 mr-3" />
-                <p className="text-md">
-                  Garantie 3 mois sur toutes nos réparations
-                </p>
+                <p className="text-md text-left">Garantie 3 mois</p>
               </li>
             </ul>
           </div>

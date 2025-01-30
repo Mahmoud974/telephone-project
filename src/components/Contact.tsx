@@ -11,7 +11,7 @@ export default function Contact() {
           <h2 className="text-3xl text-center font-bold   mb-4">
             SMARTFIX : Bientôt dans votre ville !
           </h2>
-          <p className="text-lg lg:mx-0 px-5   text-center  lg:w-4/5 mx-auto">
+          <p className="text-lg lg:mx-0 px-5   text-center   mx-auto">
             {`Depuis 2011, nous avons étendu nos réparations de Bordeaux à Paris et visons toute la France. En attendant, profitez de nos services à distance !`}
           </p>
         </div>
