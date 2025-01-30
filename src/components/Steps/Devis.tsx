@@ -4,8 +4,7 @@ import { useState } from "react";
 
 export default function Devis() {
   const { elementsSmartphone } = useSelectElementStore();
-  const [marque, setMarque] = useState("iPad");
-  const [modele, setModele] = useState("");
+
   const [reparations, setReparations] = useState({
     reparation1: "",
     reparation2: "",
@@ -20,11 +19,6 @@ export default function Devis() {
   ];
 
   const handleReparationChange = (key, value) => {
-    const selectedOption = optionsReparations.find(
-      (opt) => opt.label === value
-    );
-    const prix = selectedOption ? selectedOption.prix : 0;
-
     const newReparations = { ...reparations, [key]: value };
     setReparations(newReparations);
 
@@ -54,14 +48,19 @@ export default function Devis() {
 
       {/* Modèle */}
       <div className="mb-6">
-        <label className="text-sm text-gray-600">Modèle :</label>
-        <input
-          type="text"
-          placeholder="Sélectionnez un modèle"
-          value={modele}
-          onChange={(e) => setModele(e.target.value)}
-          className="mt-2 w-full border rounded-md p-2 text-gray-800"
-        />
+        <p className="text-sm text-gray-600">Modele :</p>
+        <div className="flex justify-between">
+          <p>{elementsSmartphone[1]}</p>
+          <Pencil className="w-5" />
+        </div>
+      </div>
+
+      <div className="mb-6">
+        <p className="text-sm text-gray-600">Les pannes:</p>
+        <div className="flex justify-between">
+          <p>{elementsSmartphone[2]}</p>
+          <Pencil className="w-5" />
+        </div>
       </div>
 
       {/* Réparations */}

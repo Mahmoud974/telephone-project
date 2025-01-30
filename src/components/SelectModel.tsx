@@ -32,6 +32,10 @@ const steps = [
 export default function SelectModel() {
   const [selectedStep, setSelectedStep] = useState<number>(0);
 
+  const nextStep = () => {
+    setSelectedStep((prev) => (prev < steps.length - 1 ? prev + 1 : prev));
+  };
+
   return (
     <main className="py-10">
       <div className="mb-8 text-center">
@@ -41,7 +45,7 @@ export default function SelectModel() {
         </h2>
       </div>
 
-      <ul className="flex  gap-14 justify-center mt-12">
+      <ul className="flex gap-14 justify-center mt-12">
         {steps.map((step, index) => (
           <li
             key={index}
@@ -70,7 +74,9 @@ export default function SelectModel() {
           title={steps[selectedStep].title}
           description={steps[selectedStep].description}
         >
-          {steps[selectedStep].component}
+          {React.cloneElement(steps[selectedStep].component, {
+            nextStep, // On passe nextStep en prop
+          })}
         </StepContent>
         <Devis />
       </section>
