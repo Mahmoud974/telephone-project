@@ -25,7 +25,6 @@ export default function StepFour() {
     resolver: zodResolver(formSchema),
   });
 
-  // Fonction pour gérer la soumission du formulaire
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     console.log(data);
   };
