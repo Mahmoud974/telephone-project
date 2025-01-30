@@ -20,13 +20,13 @@ export function AccordionQuestions() {
         <Accordion
           type="single"
           collapsible
-          className="w-full md:w-1/2 space-y-4"
+          className="w-full md:w-1/2 space-y-4 lg:px-0 px-5 "
         >
           {" "}
           {/* Ajustement de largeur et espacement */}
           <AccordionItem value="item-1">
             <AccordionTrigger>
-              Quel est le tarif d'une réparation ?
+              {`Quel est le tarif d'une réparation ?`}
             </AccordionTrigger>
             <AccordionContent>
               Le coût varie selon le modèle de votre appareil, mais les

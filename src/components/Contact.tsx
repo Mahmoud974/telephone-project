@@ -5,24 +5,17 @@ import { Button } from "@/components/ui/button";
 
 export default function Contact() {
   return (
-    <div className="bg-black py-9 flex items-center ">
-      <div className="mx-auto container flex items-center">
-        <div className="md:w-1/2 text-center md:text-left">
-          <h2 className="text-3xl font-bold  text-white mb-4">
+    <div className="bg-slate-100 text-black py-9 flex items-center ">
+      <div className="mx-auto container flex flex-col items-center">
+        <div className="md:w-1/2 text-black text-center md:text-left">
+          <h2 className="text-3xl text-center font-bold   mb-4">
             SMARTFIX : Bientôt dans votre ville !
           </h2>
-          <p className="text-lg text-white mb-6 w-4/5">
-            {`Vous vous demandez si notre service de réparation arrive chez vous
-              ? Depuis nos débuts en 2011, nous avons étendu notre couverture à
-              de nombreuses villes de la métropole bordelaise, ainsi qu'à Paris
-              et ses environs. Aujourd'hui, notre objectif est d'offrir nos
-              services de réparation dans toutes les régions de France. Un jour,
-              nos experts en réparation parcourront les rues de votre ville pour
-              sauver vos téléphones et tablettes. D'ici là, profitez de nos
-              réparations à distance !`}
+          <p className="text-lg lg:mx-0 px-5   text-center  lg:w-4/5 mx-auto">
+            {`Depuis 2011, nous avons étendu nos réparations de Bordeaux à Paris et visons toute la France. En attendant, profitez de nos services à distance !`}
           </p>
         </div>
-        <section className="max-w-lg mx-auto mt-12 p-6 bg-white shadow-md rounded-lg">
+        <section className="max-w-lg   mt-12 p-6 lg:mx-0 mx-6 bg-white shadow-md rounded-lg">
           <h2 className="text-2xl font-bold text-center text-gray-800">
             Contactez-nous
           </h2>
@@ -30,7 +23,7 @@ export default function Contact() {
             Remplissez ce formulaire et nous vous répondrons rapidement.
           </p>
 
-          <form className="mt-6 space-y-4">
+          <form className="mt-6 space-y-4 ">
             <div>
               <label className="block text-gray-700 font-medium">Nom</label>
               <Input type="text" placeholder="Votre nom" required />

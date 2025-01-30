@@ -40,7 +40,7 @@ export default function SelectModel() {
     <main className="py-10">
       <div className="mb-8 text-center">
         <p className="font-bold text-orange-400">Téléphone & tablettes</p>
-        <h2 className="text-4xl font-extrabold">
+        <h2 className="lg:text-4xl text-3xl font-extrabold">
           Confiez-nous vos appareils en toute sérénité !
         </h2>
       </div>

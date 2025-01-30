@@ -36,12 +36,11 @@ const ServicesInfo: React.FC = () => {
         <p className="font-bold text-center text-orange-400">
           Téléphone & tablettes
         </p>
-        <h2 className="text-4xl text-center font-extrabold">
-          Confiez-nous vos appareils
-          <br /> en toute sérénité !
+        <h2 className="lg:text-4xl text-3xl text-center font-extrabold lg:w-2/4 mx-auto">
+          Confiez-nous vos appareils en toute sérénité !
         </h2>
       </div>
-      <ul className="flex flex-wrap items-center  justify-center gap-12">
+      <ul className="flex lg:flex-row flex-col  items-center  justify-center gap-12">
         {services.map((service, index) => (
           <li
             key={index}

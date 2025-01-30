@@ -1,8 +1,8 @@
 // components/Footer.jsx
 export default function Footer() {
   return (
-    <footer className="bg-slate-700 text-white py-10">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-5 gap-8 px-5">
+    <footer className="bg-black text-white py-10">
+      <div className="container mx-auto grid grid-cols-1 text-center md:grid-cols-5 gap-8 px-5">
         {/* Section 1 */}
         <div>
           <h3 className="font-bold text-lg">Leader de la réparation</h3>
