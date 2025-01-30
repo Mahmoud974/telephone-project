@@ -1,6 +1,9 @@
+import { useSelectElementStore } from "@/store/store";
+import { Pencil } from "lucide-react";
 import { useState } from "react";
 
 export default function Devis() {
+  const { elementsSmartphone } = useSelectElementStore();
   const [marque, setMarque] = useState("iPad");
   const [modele, setModele] = useState("");
   const [reparations, setReparations] = useState({
@@ -10,14 +13,12 @@ export default function Devis() {
   });
   const [total, setTotal] = useState(0);
 
-  // Liste des réparations possibles
   const optionsReparations = [
     { label: "Écran cassé", prix: 100 },
     { label: "Batterie défectueuse", prix: 50 },
     { label: "Problème de caméra", prix: 80 },
   ];
 
-  // Mettre à jour les réparations et recalculer le total
   const handleReparationChange = (key, value) => {
     const selectedOption = optionsReparations.find(
       (opt) => opt.label === value
@@ -44,13 +45,11 @@ export default function Devis() {
 
       {/* Marque */}
       <div className="mb-6">
-        <label className="text-sm text-gray-600">Marque :</label>
-        <input
-          type="text"
-          value={marque}
-          onChange={(e) => setMarque(e.target.value)}
-          className="mt-2 w-full border rounded-md p-2 text-gray-800"
-        />
+        <p className="text-sm text-gray-600">Marque :</p>
+        <div className="flex justify-between">
+          <p>{elementsSmartphone[0]}</p>
+          <Pencil className="w-5" />
+        </div>
       </div>
 
       {/* Modèle */}

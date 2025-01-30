@@ -1,4 +1,6 @@
+import { selectElement, useSelectElementStore } from "@/store/store";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 interface Device {
   src: string;
@@ -18,26 +20,30 @@ const devices: Device[] = [
   { src: "/mobile-img/other.png", alt: "Other", label: "Other" },
 ];
 
-const StepOne = () => (
-  <div className="flex justify-center">
-    <ul className="grid grid-cols-5 gap-6 justify-items-center">
-      {devices.map((device, index) => (
-        <li
-          key={index}
-          className="bg-orange-500 hover:bg-orange-700 cursor-pointer text-white px-6 py-3 rounded-xl shadow-xl flex flex-col items-center justify-between h-32 w-32"
-        >
-          <Image
-            src={device.src}
-            alt={device.alt}
-            width={80}
-            height={80}
-            className="w-20 h-20 object-contain"
-          />
-          <p className="mt-2 text-xs">{device.label}</p>
-        </li>
-      ))}
-    </ul>
-  </div>
-);
+export default function StepOne() {
+  const { elementsSmartphone, addElement } = useSelectElementStore();
+  console.log(elementsSmartphone);
 
-export default StepOne;
+  return (
+    <div className="flex justify-center">
+      <ul className="grid grid-cols-5 gap-6 justify-items-center">
+        {devices.map((device, index) => (
+          <li
+            key={index}
+            className="bg-orange-500 hover:bg-orange-700 cursor-pointer text-white px-6 py-3 rounded-xl shadow-xl flex flex-col items-center justify-between h-32 w-32"
+            onClick={() => addElement(device.label)}
+          >
+            <Image
+              src={device.src}
+              alt={device.alt}
+              width={80}
+              height={80}
+              className="w-20 h-20 object-contain"
+            />
+            <p className="mt-2 text-xs">{device.label}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}

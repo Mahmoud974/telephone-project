@@ -45,7 +45,7 @@ export default function SelectModel() {
         {steps.map((step, index) => (
           <li
             key={index}
-            className={`cursor-pointer ${
+            className={`cursor-pointer flex items-center ${
               selectedStep === index ? "text-orange-500" : "text-gray-700"
             }`}
             onClick={() => setSelectedStep(index)}
