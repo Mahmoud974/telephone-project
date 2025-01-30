@@ -9,12 +9,12 @@ export default function StepTwo({ nextStep }) {
 
   const handleSelectModel = (modelName) => {
     addElement(modelName);
-    nextStep(); // Passe à l'étape suivante
+    nextStep();
   };
 
   return (
-    <div className="container mx-auto">
-      <div className="grid grid-cols-7 gap-4">
+    <div className="container lg:mx-auto mx-3">
+      <div className="grid lg:grid-cols-7 lg:overflow-hidden overflow-y-auto lg:h-auto h-96  gap-4">
         {iphoneModels.map((model, index) => (
           <button
             key={index}

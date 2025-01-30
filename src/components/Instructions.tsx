@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Button } from "./ui/button";
 
-// Composant Step pour éviter la répétition
 const Step = ({ number, imageSrc, title, description }) => (
   <div className="flex flex-col items-center text-center">
     <Image
@@ -9,12 +8,12 @@ const Step = ({ number, imageSrc, title, description }) => (
       alt={title}
       width={400}
       height={400}
-      className="w-48 h-48 mb-6 object-cover rounded-lg"
+      className="w-64 h-60 mb-6 object-cover rounded-lg"
     />
     <div className="flex items-center">
-      <p className="lg:text-xl  text-lg font-bold text-gray-800">
-        <span className="font-bold lg:text-3xl text-lg  mr-1 text-orange-600">
-          {number} /
+      <p className="  text-2xl font-bold text-gray-800">
+        <span className="  text-2xl font-bold    mr-1 text-orange-600">
+          {number}/
         </span>
         {title}
       </p>
@@ -25,7 +24,7 @@ const Step = ({ number, imageSrc, title, description }) => (
 
 export default function Instructions() {
   return (
-    <section className="py-12 mt-24">
+    <section className="py-12 mt-36">
       <div className="container text-black mx-auto px-24">
         <div className="gap-4 relative">
           <p className="font-bold text-orange-400 text-center">

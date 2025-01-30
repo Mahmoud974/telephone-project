@@ -34,7 +34,7 @@ export default function Devis() {
   };
 
   return (
-    <div className="border rounded-xl shadow-lg p-6 w-80 bg-white">
+    <div className="border rounded-xl shadow-lg p-6 lg:w-80 w-full bg-white">
       <h3 className="text-xl font-bold mb-6">Devis</h3>
 
       {/* Marque */}

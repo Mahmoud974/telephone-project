@@ -23,16 +23,16 @@ export default function StepOne({ nextStep }) {
 
   const handleSelectDevice = (label) => {
     addElement(label);
-    nextStep(); // Passe à l'étape suivante
+    nextStep();
   };
 
   return (
-    <div className="flex justify-center">
-      <ul className="grid grid-cols-5 gap-6 justify-items-center">
+    <div className="flex lg:justify-center">
+      <ul className=" grid lg:grid-cols-5 grid-cols-2 gap-6 lg:justify-items-center">
         {devices.map((device, index) => (
           <li
             key={index}
-            className="bg-orange-500 hover:bg-orange-700 cursor-pointer text-white px-6 py-3 rounded-xl shadow-xl flex flex-col items-center justify-between h-32 w-32"
+            className="lg:h-32 lg:w-32 w-24 h-24 bg-orange-500  hover:bg-orange-700 cursor-pointer text-white px-6 py-3 rounded-xl shadow-xl flex flex-col items-center justify-between "
             onClick={() => handleSelectDevice(device.label)}
           >
             <Image

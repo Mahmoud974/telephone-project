@@ -75,7 +75,7 @@ export default function SelectModel() {
           description={steps[selectedStep].description}
         >
           {React.cloneElement(steps[selectedStep].component, {
-            nextStep, // On passe nextStep en prop
+            nextStep,
           })}
         </StepContent>
         <Devis />
