@@ -1,9 +1,9 @@
 import { AccordionQuestions } from "@/components/AccordionQuestions";
+import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 import HeroSection from "@/components/Home";
 import Instructions from "@/components/Instructions";
-import Map from "@/components/Map";
 import SecondSection from "@/components/SecondSection";
 import SelectModel from "@/components/SelectModel";
 import ServicesInfo from "@/components/Services";
@@ -18,7 +18,8 @@ export default function page() {
       <SelectModel />
       <Instructions />
       <AccordionQuestions />
-      <Map />
+
+      <Contact />
 
       <Footer />
     </main>

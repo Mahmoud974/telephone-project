@@ -1,9 +1,9 @@
-interface HuaweiModel {
-  name: string;
-  year: number;
-}
+import { modelSchema } from "@/module/type";
+import { z } from "zod";
 
-export const huaweiModels: HuaweiModel[] = [
+// export const result = modelSchema.safeParse(huaweiModels);
+
+export const huaweiModels: z.infer<typeof modelSchema>[] = [
   { name: "P40 Pro Plus", year: 2020 },
   { name: "P40 Pro", year: 2020 },
   { name: "P40 Lite E", year: 2020 },

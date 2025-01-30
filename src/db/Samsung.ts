@@ -1,9 +1,7 @@
-interface SamsungModel {
-  name: string;
-  year: number;
-}
+import { modelSchema } from "@/module/type";
+import { z } from "zod";
 
-export const samsungModels: SamsungModel[] = [
+export const samsungModels: z.infer<typeof modelSchema>[] = [
   { name: "Galaxy S20 FE 5G", year: 2020 },
   { name: "Galaxy S20 FE", year: 2020 },
   { name: "Galaxy S20 Ultra", year: 2020 },

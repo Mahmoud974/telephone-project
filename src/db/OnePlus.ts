@@ -1,9 +1,7 @@
-interface OnePlusModel {
-  name: string;
-  year: number;
-}
+import { modelSchema } from "@/module/type";
+import { z } from "zod";
 
-export const onePlusModels: OnePlusModel[] = [
+export const onePlusModels: z.infer<typeof modelSchema>[] = [
   { name: "OnePlus 9 Pro", year: 2021 },
   { name: "OnePlus 9", year: 2021 },
   { name: "OnePlus 9R", year: 2021 },

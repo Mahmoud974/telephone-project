@@ -1,9 +1,7 @@
-interface AppleModel {
-  name: string;
-  year: number;
-}
+import { modelSchema } from "@/module/type";
+import { z } from "zod";
 
-export const ipadModels: AppleModel[] = [
+export const ipadModels: z.infer<typeof modelSchema>[] = [
   { name: "iPad mini 5", year: 2019 },
   { name: "iPad mini 4", year: 2015 },
   { name: "iPad mini 3", year: 2014 },
@@ -29,7 +27,7 @@ export const ipadModels: AppleModel[] = [
   { name: "iPad 2", year: 2011 },
 ];
 
-export const iphoneModels: AppleModel[] = [
+export const iphoneModels = [
   { name: "iPhone 15 Pro Max", year: 2023 },
   { name: "iPhone 15 Pro", year: 2023 },
   { name: "iPhone 15 Plus", year: 2023 },

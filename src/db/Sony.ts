@@ -1,9 +1,7 @@
-interface SonyModel {
-  name: string;
-  year: number;
-}
+import { modelSchema } from "@/module/type";
+import { z } from "zod";
 
-export const sonyModels: SonyModel[] = [
+export const sonyModels: z.infer<typeof modelSchema>[] = [
   { name: "Sony Xperia 1 II", year: 2020 },
   { name: "Sony Xperia 1", year: 2019 },
   { name: "Sony Xperia 5 II", year: 2020 },

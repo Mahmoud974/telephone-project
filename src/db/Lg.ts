@@ -1,9 +1,6 @@
-interface LGModel {
-  name: string;
-  year: number;
-}
-
-export const lgModels: LGModel[] = [
+import { modelSchema } from "@/module/type";
+import { z } from "zod";
+export const lgModels: z.infer<typeof modelSchema>[] = [
   { name: "LG Velvet", year: 2020 },
   { name: "LG V60 ThinQ", year: 2020 },
   { name: "LG V50 ThinQ", year: 2019 },

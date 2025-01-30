@@ -1,9 +1,7 @@
-interface MicrosoftModel {
-  name: string;
-  year: number;
-}
+import { modelSchema } from "@/module/type";
+import { z } from "zod";
 
-export const microsoftModels: MicrosoftModel[] = [
+export const microsoftModels: z.infer<typeof modelSchema>[] = [
   { name: "Microsoft Surface Duo 2", year: 2021 },
   { name: "Microsoft Surface Duo", year: 2020 },
   { name: "Microsoft Surface Laptop 4", year: 2021 },

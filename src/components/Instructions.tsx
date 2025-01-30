@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 // components/Instructions.jsx
 export default function Instructions() {
   return (
-    <section className="py-12  ">
+    <section className="py-12 mt-24  ">
       <div className="container   text-black mx-auto px-24">
         <div className="gap-4 relative">
           <p className="font-bold text-orange-400 text-center">

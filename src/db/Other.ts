@@ -1,9 +1,7 @@
-interface PhoneModel {
-  name: string;
-  year: number;
-}
+import { modelSchema } from "@/module/type";
+import { z } from "zod";
 
-export const phoneModels: PhoneModel[] = [
+export const phoneModels: z.infer<typeof modelSchema>[] = [
   { name: "Nokia 6.1", year: 2018 },
   { name: "Nokia 3.1", year: 2018 },
   { name: "Nokia Lumia 520", year: 2013 },

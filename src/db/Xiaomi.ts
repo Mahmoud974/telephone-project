@@ -1,9 +1,7 @@
-interface XiaomiModel {
-  name: string;
-  year: number;
-}
+import { modelSchema } from "@/module/type";
+import { z } from "zod";
 
-export const xiaomiModels: XiaomiModel[] = [
+export const xiaomiModels: z.infer<typeof modelSchema>[] = [
   { name: "Redmi 9A", year: 2020 },
   { name: "Redmi 9", year: 2020 },
   { name: "Redmi 8A", year: 2019 },
