@@ -1,85 +1,135 @@
 "use client";
-import React, { useState } from "react";
-import StepContent from "./AllSteps/StepContent";
-import Devis from "./Steps/Devis";
-import StepFour from "./AllSteps/StepFour";
-import StepOne from "./AllSteps/StepOne";
-import StepThree from "./AllSteps/StepThree";
-import StepTwo from "./AllSteps/StepTwo";
+import { useSelectElementStore } from "@/store/store";
+import { Pencil } from "lucide-react";
+import { useState } from "react";
 
-const steps = [
-  {
-    title: "Étape I",
-    description: "Sélectionnez votre appareil",
-    component: <StepOne />,
-  },
-  {
-    title: "Étape II",
-    description: "Sélectionnez votre modèle",
-    component: <StepTwo />,
-  },
-  {
-    title: "Étape III",
-    description: "Sélectionnez la ou les pannes",
-    component: <StepThree />,
-  },
-  {
-    title: "Étape IV",
-    description: "Prenons rendez-vous",
-    component: <StepFour />,
-  },
-];
-export default function SelectModel() {
-  const [selectedStep, setSelectedStep] = useState<number>(0);
+export default function Devis() {
+  const { elementsSmartphone } = useSelectElementStore();
 
-  const nextStep = () => {
-    setSelectedStep((prev) => (prev < steps.length - 1 ? prev + 1 : prev));
+  const [reparations, setReparations] = useState({
+    reparation1: "",
+    reparation2: "",
+    reparation3: "",
+  });
+  const [total, setTotal] = useState(0);
+
+  const optionsReparations = [
+    { label: "Écran cassé", prix: 100 },
+    { label: "Batterie défectueuse", prix: 50 },
+    { label: "Problème de caméra", prix: 80 },
+  ];
+
+  const handleReparationChange = (key, value) => {
+    const newReparations = { ...reparations, [key]: value };
+    setReparations(newReparations);
+
+    // Calculer le total
+    const totalPrice = Object.values(newReparations)
+      .map((rep) => {
+        const opt = optionsReparations.find((o) => o.label === rep);
+        return opt ? opt.prix : 0;
+      })
+      .reduce((acc, curr) => acc + curr, 0);
+
+    setTotal(totalPrice);
   };
 
   return (
-    <main className="py-10">
-      <div className="mb-8 text-center">
-        <p className="font-bold text-orange-400">Téléphone & tablettes</p>
-        <h2 className="lg:text-4xl text-3xl font-extrabold">
-          Confiez-nous vos appareils en toute sérénité !
-        </h2>
+    <div className="border rounded-xl shadow-lg p-6 w-full max-w-lg mx-auto bg-white">
+      <h3 className="text-xl font-bold mb-6">Devis</h3>
+
+      {/* Marque */}
+      <div className="mb-6">
+        <p className="text-sm text-gray-600">Marque :</p>
+        <div className="flex justify-between items-center">
+          <p>{elementsSmartphone[0]}</p>
+          <Pencil className="w-5" />
+        </div>
       </div>
 
-      <ul className="flex gap-14 justify-center mt-12">
-        {steps.map((step, index) => (
-          <li
-            key={index}
-            className={`cursor-pointer flex items-center ${
-              selectedStep === index ? "text-orange-500" : "text-gray-700"
-            }`}
-            onClick={() => setSelectedStep(index)}
-          >
-            <input
-              type="radio"
-              name="step"
-              checked={selectedStep === index}
-              readOnly
-              className="w-9 h-12 border-2 cursor-pointer"
-            />
-            <div className="ml-2 text-left">
-              <p className="font-bold">{step.title}</p>
-              <p className="text-xs">{step.description}</p>
-            </div>
-          </li>
-        ))}
-      </ul>
+      {/* Modèle */}
+      <div className="mb-6">
+        <p className="text-sm text-gray-600">Modèle :</p>
+        <div className="flex justify-between items-center">
+          <p>{elementsSmartphone[1]}</p>
+          <Pencil className="w-5" />
+        </div>
+      </div>
 
-      <section className="flex justify-center mt-10">
-        <StepContent
-          title={steps[selectedStep].title}
-          description={steps[selectedStep].description}
-        >
-          {React.cloneElement(steps[selectedStep].component, {
-            nextStep,
-          })}
-        </StepContent>
-        <Devis />
-      </section>
-    </main>
+      {/* Pannes */}
+      <div className="mb-6">
+        <p className="text-sm text-gray-600">Les pannes :</p>
+        <div className="flex justify-between items-center">
+          <p>{elementsSmartphone[2]}</p>
+          <Pencil className="w-5" />
+        </div>
+      </div>
+
+      {/* Réparations */}
+      <div className="mb-6">
+        <label className="text-sm text-gray-600">Réparations :</label>
+
+        {/* Ligne 1 */}
+        <div className="mt-2">
+          <select
+            value={reparations.reparation1}
+            onChange={(e) =>
+              handleReparationChange("reparation1", e.target.value)
+            }
+            className="w-full border rounded-md p-2 text-gray-800 mb-2"
+          >
+            <option value="">Sélectionnez une réparation</option>
+            {optionsReparations.map((option, index) => (
+              <option key={index} value={option.label}>
+                {option.label} - {option.prix} €
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {/* Ligne 2 */}
+        <div className="mt-2">
+          <select
+            value={reparations.reparation2}
+            onChange={(e) =>
+              handleReparationChange("reparation2", e.target.value)
+            }
+            className="w-full border rounded-md p-2 text-gray-800 mb-2"
+          >
+            <option value="">Sélectionnez une réparation</option>
+            {optionsReparations.map((option, index) => (
+              <option key={index} value={option.label}>
+                {option.label} - {option.prix} €
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {/* Ligne 3 */}
+        <div className="mt-2">
+          <select
+            value={reparations.reparation3}
+            onChange={(e) =>
+              handleReparationChange("reparation3", e.target.value)
+            }
+            className="w-full border rounded-md p-2 text-gray-800"
+          >
+            <option value="">Sélectionnez une réparation</option>
+            {optionsReparations.map((option, index) => (
+              <option key={index} value={option.label}>
+                {option.label} - {option.prix} €
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
+
+      {/* Total */}
+      <div>
+        <p className="font-bold text-lg">
+          Total : <span className="text-black">{total.toFixed(2)} €</span>
+        </p>
+      </div>
+    </div>
   );
 }

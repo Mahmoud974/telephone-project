@@ -28,7 +28,7 @@ export default function StepOne({ nextStep }) {
 
   return (
     <div className="flex lg:justify-center">
-      <ul className=" grid lg:grid-cols-5 grid-cols-2 gap-6 lg:justify-items-center">
+      <ul className=" grid  grid-cols-5   gap-6 lg:justify-items-center">
         {devices.map((device, index) => (
           <li
             key={index}
